@@ -1,0 +1,19 @@
+.PHONY: all both app api
+
+all: 
+	@$(MAKE) both -j2
+
+both: api app
+
+api:
+	@echo "Building and running API..."
+		cd api && npm run build && npm start 
+		timeout 3
+
+app:
+	@echo "Building and running app..."
+		cd app && yarn install && yarn start
+	
+
+
+
