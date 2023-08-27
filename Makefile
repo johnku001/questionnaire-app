@@ -7,7 +7,7 @@ both: api app
 
 api:
 	@echo "Building and running API..."
-		cd api && npm run build && npm start 
+		cd api && npm install --check-files  &&  npm run build && npm start 
 		timeout 3
 
 app:
