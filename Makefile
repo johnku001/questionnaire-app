@@ -12,7 +12,7 @@ api:
 
 app:
 	@echo "Building and running app..."
-		cd app && yarn install && yarn start
+		cd app && yarn install --check-files && yarn start
 	
 
 

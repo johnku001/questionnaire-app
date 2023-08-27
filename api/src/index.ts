@@ -1,27 +1,23 @@
-// src/index.ts
 import express, { Request, Response } from 'express';
+import cors from 'cors';
 
+import questionnaireData from './data.json';
 const app = express();
 const port = 3001;
 
-// Temporary data to simulate questions and answer options
-const questionnaireData = {
-  data: [
-    {
-      id: 1,
-      question: 'What is your favorite color?',
-      options: ['Red', 'Green', 'Blue'],
-    },
-    {
-      id: 2,
-      question: 'Which programming language do you prefer?',
-      options: ['JavaScript', 'Python', 'Java', 'C++'],
-    },
-  ],
-};
-
 // Middleware to parse JSON data
 app.use(express.json());
+
+app.use(cors());
+
+// Configure CORS middleware with custom options
+app.use(
+  cors({
+    origin: 'http://localhost:3000', // Specify allowed origin
+    methods: ['GET', 'POST'], // Specify allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+  })
+);
 
 // Route to get all questions
 app.get('/questions', (_: Request, res: Response) => {
@@ -30,8 +26,10 @@ app.get('/questions', (_: Request, res: Response) => {
 
 // Route to get a specific question by ID
 app.get('/questions/:id', (req: Request, res: Response) => {
-  const questionId = parseInt(req.params.id, 10);
-  const question = questionnaireData.data.find((q) => q.id === questionId);
+  const page = parseInt(req.params.id, 10);
+  const question = questionnaireData.pages.find(
+    (q: any) => q.page.name === page
+  );
   if (question) {
     res.json(question);
   } else {

@@ -25,6 +25,12 @@ import { configureAppStore } from 'store/configureStore';
 
 import reportWebVitals from 'reportWebVitals';
 
+// Import react query
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+// Import toastify
+import { ToastContainer } from 'react-toastify';
+
 // Initialize languages
 import './locales/i18n';
 
@@ -32,12 +38,16 @@ const store = configureAppStore();
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
+const queryClient = new QueryClient();
 
 root.render(
   <Provider store={store}>
     <HelmetProvider>
       <React.StrictMode>
-        <App />
+        <QueryClientProvider client={queryClient}>
+          <App />
+          <ToastContainer />
+        </QueryClientProvider>
       </React.StrictMode>
     </HelmetProvider>
   </Provider>,

@@ -11,9 +11,10 @@ import { Helmet } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { GlobalStyle } from 'styles/global-styles';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { HomePage } from './pages/HomePage/Loadable';
-import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 
 export function App() {
@@ -27,7 +28,6 @@ export function App() {
       >
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<NotFoundPage />} />
