@@ -8,7 +8,14 @@ Welcome to the Questionnaire App and API repository! This repository contains tw
 To build and run both the Questionnaire App and API concurrently, you can use the following command:
  
 ```bash
-make -j2
+make
+```
+
+To build and run both the Questionnaire App and API one by one, you can use the following command:
+ 
+```bash
+make api
+make app
 ```
  
  
