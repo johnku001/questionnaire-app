@@ -42,7 +42,7 @@ Welcome to the Questionnaire App! This web application allows users to respond t
 3. Install dependencies and start:
 
    ```bash
-   npm install & npm start
+   yarn install & yarn start
    ```
 
 ## Used Lib and Template
