@@ -1,68 +1,74 @@
 # Questionnaire API
 
-This project implements a basic Questionnaire API using Express.js and TypeScript. The API provides endpoints to retrieve a list of questions and answer options, as well as to retrieve a specific question by its ID.
+This is a simple Express.js API for managing questionnaire data. The API provides endpoints to retrieve questionnaire questions and save responses to a JSON file.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Getting Started
 
-Follow these steps to set up and run the Questionnaire API:
+### Prerequisites
 
-1. **Clone the Repository:**
+- Node.js (v14 or later)
+- npm (Node Package Manager)
 
-   Clone this repository to your local machine using the following command:
+### Installation
 
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/johnku001/questionnaire-test.git
    ```
-   git clone <repository-url>
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd api
    ```
 
-2. **Install Dependencies:**
+3. Install dependencies:
 
-   Navigate to the project directory and install the required dependencies using npm:
-
-   ```
-   cd <repository-directory>/src
+   ```bash
    npm install
    ```
 
-3. **Run the API:**
+### Usage
 
-   Start the Questionnaire API server by running the following command:
+1. Start the server:
 
-   ```
+   ```bash
    npm start
    ```
 
-   The API will start and be accessible at `http://localhost:3001`.
+   The API server will be running at `http://localhost:3001`.
+
+2. Use API endpoints to interact with the questionnaire data.
 
 ## API Endpoints
 
-The following endpoints are available:
+- **GET /questions**
 
-- **GET /questions:** Retrieve a list of all questions and answer options.
+  Get all questions from the questionnaire.
 
-- **GET /questions/:id:** Retrieve a specific question by its ID.
+- **GET /questions/:id**
 
-## Data
+  Get a specific question by ID.
 
-The API uses temporary data to simulate questions and answer options. This data is structured as an array of objects within the `questionnaireData` object in the `src/index.ts` file.
+- **POST /questions**
 
-## Usage
+  Create a new questionnaire response.
 
-You can use tools like `curl`, `Postman`, or a web browser to test the API endpoints. For example:
+## License
 
-- To get all questions: `GET http://localhost:3001/questions`
-- To get a specific question (replace `:id` with the desired question ID): `GET http://localhost:3001/questions/:id`
-
-## Further Improvements
-
-This project serves as a basic starting point for a Questionnaire API. To further enhance the API, you could consider:
-
-- Storing data in a database instead of using temporary data.
-- Adding endpoints to create, update, and delete questions.
-- Implementing authentication and authorization for secure access.
-- Adding validation and error handling for input data.
-
-Feel free to explore, modify, and build upon this project to suit your needs.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Feel free to replace `<repository-url>` and `<repository-directory>` with the actual URL and directory name for your repository. This README provides an overview of the project, instructions for setting up and running the API, details about the available endpoints, and suggestions for further improvements.
+Feel free to customize this README according to your project's specifics. It covers the basic information about your Express.js API, how to get started, available API endpoints, contributing guidelines, and the license information.
