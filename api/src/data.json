@@ -1,82 +1,261 @@
 {
-  "title": "American History",
-  "showProgressBar": "top",
-  "firstPageIsStarted": true,
-  "startSurveyText": "Start Quiz",
+  "title": "JC's Test Questions",
   "pages": [
     {
+      "name": "page1",
       "elements": [
         {
           "type": "html",
-          "html": "You are about to start a quiz on American history. <br>You will have 10 seconds for every question and 25 seconds to end the quiz.<br>Enter your name below and click <b>Start Quiz</b> to begin."
+          "name": "startPage",
+          "html": "Welcome! You are about to start a questionnaire.  <br/><br/>\nThroughout the survey, you'll encounter various questions, some mandatory, while others optional. <br/><br/><b>Please enter your name below and then click the 'Start' button to begin. </b> <br/><br/>Let's get started!"
         },
         {
           "type": "text",
           "name": "username",
+          "title": "What is your name? ",
           "titleLocation": "hidden",
           "isRequired": true,
           "maxLength": 25
         }
-      ]
+      ],
+      "title": "Start Page"
     },
     {
+      "name": "page2",
       "elements": [
         {
+          "type": "text",
+          "name": "email",
+          "title": "What is your email?",
+          "isRequired": false,
+          "inputType": "email"
+        },
+        {
+          "type": "text",
+          "name": "dob",
+          "title": "What is your Day of Birth?",
+          "isRequired": false,
+          "inputType": "date"
+        },
+        {
+          "type": "nouislider",
+          "name": "age",
+          "title": "What is your age?",
+          "isRequired": false
+        },
+        {
+          "type": "text",
+          "inputType": "color",
+          "name": "color",
+          "title": "What color do you like most?(original)"
+        },
+        {
+          "type": "color-picker",
+          "name": "color-2",
+          "title": "What color do you like most?",
+          "colorPickerType": "Sketch"
+        },
+        {
+          "type": "boolean",
+          "name": "isSE?",
+          "title": "Are you a software Developer?",
+          "isRequired": true
+        },
+        {
+          "type": "dropdown",
+          "name": "isLikeSpiderman",
+          "title": "Do you like spiderman?",
+          "choices": [
+            {
+              "value": "1",
+              "text": "Yes"
+            },
+            {
+              "value": "2",
+              "text": "No"
+            }
+          ],
+          "showOtherItem": true
+        },
+        {
           "type": "radiogroup",
-          "name": "civilwar",
-          "title": "When was the American Civil War?",
-          "choices": ["1796-1803", "1810-1814", "1861-1865", "1939-1945"],
+          "name": "math1",
+          "title": "What is the outcome of 1 + 1?",
           "correctAnswer": "1861-1865",
-          "enableIf": "{civilwar} empty"
-        }
-      ]
-    },
-    {
-      "elements": [
+          "choices": ["1", "2", "3", "4"],
+          "choicesOrder": "random"
+        },
         {
-          "type": "radiogroup",
-          "name": "libertyordeath",
-          "title": "Whose quote is this: \"Give me liberty, or give me death\"?",
-          "choicesOrder": "random",
+          "type": "checkbox",
+          "name": "frontendLib",
+          "title": "Which of the following are front-end library",
+          "isRequired": true,
           "choices": [
-            "John Hancock",
-            "James Madison",
-            "Patrick Henry",
-            "Samuel Adams"
+            {
+              "value": "react",
+              "text": "React"
+            },
+            {
+              "value": "angular",
+              "text": "Angular"
+            },
+            {
+              "value": "ror",
+              "text": "Ruby on Rail"
+            },
+            {
+              "value": "vue",
+              "text": "Vue.js"
+            }
           ],
-          "correctAnswer": "Patrick Henry",
-          "enableIf": "{libertyordeath} empty"
-        }
-      ]
-    },
-    {
-      "elements": [
+          "choicesOrder": "random",
+          "showSelectAllItem": true
+        },
         {
-          "type": "radiogroup",
-          "name": "magnacarta",
-          "title": "What is Magna Carta?",
-          "choicesOrder": "random",
+          "type": "imagepicker",
+          "name": "isTiger",
+          "title": "Which picture is a tiger",
+          "isRequired": true,
           "choices": [
-            "The foundation of the British parliamentary system",
-            "The Great Seal of the monarchs of England",
-            "The French Declaration of the Rights of Man",
-            "The charter signed by the Pilgrims on the Mayflower"
+            {
+              "value": "1",
+              "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/lion.jpg"
+            },
+            {
+              "value": "2",
+              "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/giraffe.jpg"
+            },
+            {
+              "value": "3",
+              "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/panda.jpg"
+            },
+            {
+              "value": "4",
+              "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/camel.jpg"
+            }
+          ]
+        },
+        {
+          "name": "currency",
+          "type": "text",
+          "title": "Currency:",
+          "inputMask": "currency",
+          "prefix": "$",
+          "numericDigits": 2,
+          "startWithNewLine": false
+        },
+        {
+          "name": "decimal",
+          "type": "text",
+          "title": "Decimal:",
+          "inputMask": "decimal"
+        },
+        {
+          "name": "phone",
+          "type": "text",
+          "title": "Phone:",
+          "inputMask": "phone",
+          "inputFormat": "+9(999)-999-99-99",
+          "startWithNewLine": true
+        },
+        {
+          "name": "creditCard",
+          "type": "text",
+          "title": "Custom format",
+          "description": "Enter a credit card number",
+          "inputFormat": "9999 9999 9999 9999",
+          "startWithNewLine": true
+        },
+        {
+          "type": "ranking",
+          "name": "rankFrontendLib",
+          "title": "Rank the following front-end library you love most.",
+          "choices": [
+            {
+              "value": "1",
+              "text": "React"
+            },
+            {
+              "value": "2",
+              "text": "Vue.js"
+            },
+            {
+              "value": "3",
+              "text": "Dart.js"
+            },
+            {
+              "value": "4",
+              "text": "Augular"
+            },
+            {
+              "value": "5",
+              "text": "Jquery"
+            }
           ],
-          "correctAnswer": "The foundation of the British parliamentary system",
-          "enableIf": "{magnacarta} empty"
+          "choicesOrder": "random"
+        },
+        {
+          "type": "rating",
+          "name": "satisfiedProduct",
+          "title": "How satisfied are you with our product?",
+          "rateType": "stars",
+          "minRateDescription": "Not Satisfied",
+          "maxRateDescription": "Completely satisfied"
+        },
+        {
+          "type": "matrix",
+          "name": "satisfiedProductAspects?",
+          "title": "How satisfied are you with our product in these aspects?",
+          "columns": [
+            {
+              "value": "1",
+              "text": "1 (least)"
+            },
+            {
+              "value": "2",
+              "text": "2"
+            },
+            {
+              "value": "3",
+              "text": "3"
+            },
+            {
+              "value": "4",
+              "text": "4"
+            },
+            {
+              "value": "5",
+              "text": "5 (most)"
+            }
+          ],
+          "rows": [
+            {
+              "value": "layout",
+              "text": "Layout"
+            },
+            {
+              "value": "price",
+              "text": "Price"
+            },
+            {
+              "value": "afterSales",
+              "text": "After-sale service"
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "comment",
+          "title": "Comment...."
         }
-      ]
+      ],
+      "title": "Questions Page"
     }
   ],
-  "completedHtml": "<h4>You got <b>{correctAnswers}</b> out of <b>{questionCount}</b> correct answers.</h4>",
-  "completedHtmlOnCondition": [
-    {
-      "expression": "{correctAnswers} == 0",
-      "html": "<h4>Unfortunately, none of your answers is correct. Please try again.</h4>"
-    },
-    {
-      "expression": "{correctAnswers} == {questionCount}",
-      "html": "<h4>Congratulations! You answered all the questions correctly!</h4>"
-    }
-  ]
+  "showPageTitles": false,
+  "showProgressBar": "top",
+  "startSurveyText": "Start Quiz",
+  "firstPageIsStarted": true,
+  "questionsOnPageMode": "requiredQuestions",
+  "showPreviewBeforeComplete": "showAnsweredQuestions"
 }

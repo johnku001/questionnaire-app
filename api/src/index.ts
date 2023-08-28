@@ -1,5 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
 
 import questionnaireData from './data.json';
 const app = express();
@@ -26,15 +28,26 @@ app.get('/questions', (_: Request, res: Response) => {
 
 // Route to get a specific question by ID
 app.get('/questions/:id', (req: Request, res: Response) => {
-  const page = parseInt(req.params.id, 10);
-  const question = questionnaireData.pages.find(
-    (q: any) => q.page.name === page
+  const page = req.params.id;
+  const pageData = questionnaireData.pages[1];
+  const question = (pageData.elements as Array<any>).find(
+    (q: any) => q.name === page
   );
   if (question) {
     res.json(question);
   } else {
     res.status(404).json({ message: 'Question not found' });
   }
+});
+
+app.post('/questions', (req, res) => {
+  const data = req.body;
+
+  // Save the received data to result.json
+  const filePath = path.join(__dirname, 'result.json');
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+  res.json({ message: 'Data saved successfully' });
 });
 
 // Start the server

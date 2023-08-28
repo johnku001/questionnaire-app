@@ -1,11 +1,13 @@
 import React from 'react';
-import { clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 export interface ActionButtonProp extends React.ComponentProps<any> {
   text: string;
   onClick: () => void;
   canRender: boolean;
   className?: string;
+  color?: string;
+  darkColor?: string;
 }
 
 export function ActionButton({
@@ -13,18 +15,27 @@ export function ActionButton({
   onClick,
   canRender,
   className,
+  color = '#2772CB',
+  darkColor = '#246ABC',
 }: ActionButtonProp) {
   if (!canRender) return null;
 
+  const buttonStyle = {
+    background: darkColor,
+  };
+
   return (
-    <button
-      className={clsx(
-        `focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 hover:bg-teal-600 hover:shadow-md transition duration-300 ease-in-out text-base px-8 py-3 rounded-md shadow-md bg-teal-500 text-white`,
-        className,
-      )}
-      onClick={onClick}
-    >
-      {text}
-    </button>
+    <>
+      <button
+        className={twMerge(
+          'focus:outline-none focus:ring-2 focus:opacity-80 hover:opacity-100 hover:shadow-md transition duration-300 ease-in-out opacity-80  text-base px-8 py-3 rounded-md shadow-md  text-white',
+          className,
+        )}
+        onClick={onClick}
+        style={buttonStyle}
+      >
+        {text}
+      </button>
+    </>
   );
 }

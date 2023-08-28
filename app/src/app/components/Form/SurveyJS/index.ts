@@ -1,4 +1,4 @@
 import './PercentageProgressBar';
 import './FooterButtons';
 import './ActionButton';
-import './PageSelecter';
+import './ColorPicker';
