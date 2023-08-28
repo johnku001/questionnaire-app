@@ -1,19 +1,26 @@
-.PHONY: all both app api
+.PHONY: all both app api api_build app_build
 
-all: 
+all:
 	@$(MAKE) both -j2
 
 both: api app
 
 api:
-	@echo "Building and running API..."
-		cd api && npm install --check-files  &&  npm run build && npm start 
-		timeout 3
+	@echo "Running api..."
+	cd api && npm start && timeout 3
 
 app:
-	@echo "Building and running app..."
-		cd app && yarn install --check-files && yarn start
-	
+	@echo "Running app..."
+	cd app && yarn start
 
+build: both_build
 
+both_build: api_build app_build
 
+api_build:
+	@echo "Building api..."
+	cd api && npm install --check-files && npm run build
+
+app_build:
+	@echo "Building app..."
+	cd app && yarn install --check-files

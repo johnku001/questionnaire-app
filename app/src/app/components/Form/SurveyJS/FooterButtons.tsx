@@ -18,7 +18,7 @@ export class FooterButtons extends ReactSurveyElement {
           darkColor={themeJson.cssVariables['--sjs-primary-backcolor-dark']}
         />
         <ActionButton
-          text="Previous"
+          text="Back"
           onClick={() => this.props.model.prevPage()}
           canRender={this.props.model.isShowPrevButton}
           color={themeJson.cssVariables['--sjs-primary-backcolor']}
