@@ -51,6 +51,7 @@ export class FooterButtons extends ReactSurveyElement {
           canRender={
             this.props.model.isLastPage && this.props.model.state === 'preview'
           }
+          className="ml-auto"
           textColor={themeJson.cssVariables['--sjs-general-backcolor']}
           backgroundColor={
             themeJson.cssVariables['--sjs-primary-backcolor-dark']

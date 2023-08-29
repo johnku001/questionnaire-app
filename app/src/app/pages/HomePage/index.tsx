@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as SurveyCore from 'survey-core';
 import SurveyJS from 'app/components/Form/SurveyJS';
-
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useQuery, useMutation } from 'react-query';
 import { toast } from 'react-toastify';
@@ -14,6 +14,7 @@ import {
 import CircularProgress from '@mui/material/CircularProgress';
 
 export function HomePage() {
+  let navigate = useNavigate();
   const { isLoading, error, data } = useQuery('repoData', getQuestionnaire);
 
   const postQuestionnaireResult = useMutation({
@@ -28,17 +29,7 @@ export function HomePage() {
       return createNewQuestionnaireResponse(survey.data);
     },
     onSuccess: () => {
-      toast.success('Saved the api', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
-      window.location.href = '/finished';
+      navigate('/finished');
     },
     onError: (err, variables) => {
       console.error(err);
