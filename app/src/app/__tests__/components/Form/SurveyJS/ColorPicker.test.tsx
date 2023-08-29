@@ -1,11 +1,8 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom/extend-expect'; // for more readable assertions
-import {
-  SurveyQuestionColorPicker,
-  QuestionColorPickerModel,
-} from 'app/components/Form/SurveyJS/ColorPicker';
+import {} from 'app/components/Form/SurveyJS/ColorPicker';
 
 describe('SurveyQuestionColorPicker', () => {
   let container: HTMLDivElement | null = null;

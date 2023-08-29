@@ -11,7 +11,6 @@ import { Helmet } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import { GlobalStyle } from 'styles/global-styles';
-import 'react-toastify/dist/ReactToastify.css';
 
 import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
@@ -32,8 +31,8 @@ export function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/questionnaire" />} />
         <Route path="/questionnaire" element={<HomePage />} />
-        <Route path="*" element={<NotFoundPage />} />
         <Route path="/finished" element={<FinishQuestionnairePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <GlobalStyle />
     </BrowserRouter>

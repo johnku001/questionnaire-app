@@ -257,5 +257,5 @@
   "startSurveyText": "Start Quiz",
   "firstPageIsStarted": true,
   "questionsOnPageMode": "requiredQuestions",
-  "showPreviewBeforeComplete": "showAnsweredQuestions"
+  "showPreviewBeforeComplete": "showAllQuestions"
 }

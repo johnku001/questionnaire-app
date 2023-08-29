@@ -6,8 +6,8 @@ export interface ActionButtonProp extends React.ComponentProps<any> {
   onClick: () => void;
   canRender: boolean;
   className?: string;
-  color?: string;
-  darkColor?: string;
+  textColor?: string;
+  backgroundColor?: string;
 }
 
 export function ActionButton({
@@ -15,13 +15,14 @@ export function ActionButton({
   onClick,
   canRender,
   className,
-  color = '#2772CB',
-  darkColor = '#246ABC',
+  textColor = '#ffffff',
+  backgroundColor = '#246ABC',
 }: ActionButtonProp) {
   if (!canRender) return null;
 
   const buttonStyle = {
-    background: darkColor,
+    background: backgroundColor,
+    color: textColor,
   };
 
   return (
