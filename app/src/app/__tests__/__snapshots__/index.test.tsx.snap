@@ -34,11 +34,11 @@ exports[`<App /> should render and match the snapshot 1`] = `
     />
     <Route
       element={<Unknown />}
-      path="*"
+      path="/finished"
     />
     <Route
       element={<Unknown />}
-      path="/finished"
+      path="*"
     />
   </Routes>
   <Memo(l) />

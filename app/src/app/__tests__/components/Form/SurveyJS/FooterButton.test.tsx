@@ -18,6 +18,4 @@ describe('FooterButtons', () => {
     const { container } = render(<FooterButtons model={mockModel} />);
     expect(container).toBeInTheDocument();
   });
-
-  // Add more test cases as needed
 });

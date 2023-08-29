@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionButton should render and match the snapshot 1`] = `
+<React.Fragment>
+  <button
+    className="focus:outline-none focus:ring-2 focus:opacity-80 hover:opacity-100 hover:shadow-md transition duration-300 ease-in-out opacity-80 text-base px-8 py-3 rounded-md shadow-md text-white"
+    onClick={[Function]}
+    style={
+      Object {
+        "background": "#246ABC",
+        "color": "#ffffff",
+      }
+    }
+  >
+    text
+  </button>
+</React.Fragment>
+`;

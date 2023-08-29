@@ -14,30 +14,47 @@ export class FooterButtons extends ReactSurveyElement {
           text="Start"
           onClick={() => this.props.model.start()}
           canRender={this.props.model.isShowStartingPage}
-          color={themeJson.cssVariables['--sjs-primary-backcolor']}
-          darkColor={themeJson.cssVariables['--sjs-primary-backcolor-dark']}
+          textColor={themeJson.cssVariables['--sjs-general-backcolor']}
+          backgroundColor={
+            themeJson.cssVariables['--sjs-primary-backcolor-dark']
+          }
         />
         <ActionButton
           text="Back"
           onClick={() => this.props.model.prevPage()}
           canRender={this.props.model.isShowPrevButton}
-          color={themeJson.cssVariables['--sjs-primary-backcolor']}
-          darkColor={themeJson.cssVariables['--sjs-primary-backcolor-dark']}
+          textColor={themeJson.cssVariables['--sjs-primary-backcolor-dark']}
+          backgroundColor={themeJson.cssVariables['--sjs-general-backcolor']}
         />
+
         <ActionButton
           text="Next"
           onClick={() => this.props.model.nextPage()}
           canRender={this.props.model.isShowNextButton}
           className="ml-auto"
-          color={themeJson.cssVariables['--sjs-primary-backcolor']}
-          darkColor={themeJson.cssVariables['--sjs-primary-backcolor-dark']}
+          textColor={themeJson.cssVariables['--sjs-primary-backcolor-dark']}
+          backgroundColor={themeJson.cssVariables['--sjs-general-backcolor']}
+        />
+        <ActionButton
+          text="Preview"
+          onClick={() => this.props.model.showPreview()}
+          canRender={
+            this.props.model.isLastPage && this.props.model.state !== 'preview'
+          }
+          className="ml-auto"
+          textColor={themeJson.cssVariables['--sjs-primary-backcolor-dark']}
+          backgroundColor={themeJson.cssVariables['--sjs-general-backcolor']}
         />
         <ActionButton
           text="Complete"
           onClick={() => this.props.model.completeLastPage()}
-          canRender={this.props.model.isLastPage}
-          color={themeJson.cssVariables['--sjs-primary-backcolor']}
-          darkColor={themeJson.cssVariables['--sjs-primary-backcolor-dark']}
+          canRender={
+            this.props.model.isLastPage && this.props.model.state === 'preview'
+          }
+          textColor={themeJson.cssVariables['--sjs-general-backcolor']}
+          backgroundColor={
+            themeJson.cssVariables['--sjs-primary-backcolor-dark']
+          }
         />
       </div>
     );
